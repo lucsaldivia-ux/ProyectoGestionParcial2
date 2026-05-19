@@ -1,4 +1,4 @@
-package com.gestion.Operaciones;
+package com.gestion.Clientes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
