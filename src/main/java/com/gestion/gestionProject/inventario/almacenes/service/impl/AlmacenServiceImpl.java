@@ -1,26 +1,48 @@
 package com.gestion.gestionProject.inventario.almacenes.service.impl;
 
-import java.util.Map;
-
+import com.gestion.gestionProject.inventario.almacenes.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
-import com.gestion.gestionProject.inventario.almacenes.AlmacenRepository;
-import com.gestion.gestionProject.inventario.almacenes.AlmacenService;
+import java.util.List;
 
 @Service
 public class AlmacenServiceImpl implements AlmacenService {
 
-	private final AlmacenRepository almacenRepository;
+    private final AlmacenRepository repo;
 
-	public AlmacenServiceImpl(AlmacenRepository almacenRepository) {
-		this.almacenRepository = almacenRepository;
-	}
+    public AlmacenServiceImpl(AlmacenRepository repo) {
+        this.repo = repo;
+    }
 
-	@Override
-	public Map<String, Object> listPlaceholder() {
-		return Map.of(
-				"domain", "almacenes",
-				"items", almacenRepository.findAll());
-	}
+    @Override
+    public List<Almacen> listar() {
+        return repo.findAll();
+    }
 
+    @Override
+    public Almacen buscarPorId(Long id) {
+        return repo.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Almacén no encontrado"));
+    }
+
+    @Override
+    public Almacen crear(Almacen almacen) {
+        return repo.save(almacen);
+    }
+
+    @Override
+    public Almacen actualizar(Long id, Almacen datos) {
+        Almacen existing = buscarPorId(id);
+        existing.setNombre(datos.getNombre());
+        existing.setUbicacion(datos.getUbicacion());
+        return repo.save(existing);
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        buscarPorId(id);
+        repo.deleteById(id);
+    }
 }

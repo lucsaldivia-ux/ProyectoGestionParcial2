@@ -1,9 +1,11 @@
 package com.gestion.gestionProject.inventario.proveedores;
 
-import java.util.Map;
+import java.util.List;
 
 public interface ProveedorService {
-
-	Map<String, Object> listPlaceholder();
-
+    List<Proveedor> listar();
+    Proveedor buscarPorId(Long id);
+    Proveedor crear(Proveedor proveedor);
+    Proveedor actualizar(Long id, Proveedor proveedor);
+    void eliminar(Long id);
 }

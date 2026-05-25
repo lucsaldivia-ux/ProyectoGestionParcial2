@@ -1,24 +1,44 @@
 package com.gestion.gestionProject.inventario.productos;
 
-import java.util.Map;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/inventario/productos")
 public class ProductoController {
 
-	private final ProductoService productoService;
+    private final ProductoService service;
 
-	public ProductoController(ProductoService productoService) {
-		this.productoService = productoService;
-	}
+    public ProductoController(ProductoService service) {
+        this.service = service;
+    }
 
-	@GetMapping
-	public Map<String, Object> list() {
-		return productoService.listPlaceholder();
-	}
+    @GetMapping
+    public List<Producto> listar() {
+        return service.listar();
+    }
 
+    @GetMapping("/{id}")
+    public Producto buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Producto crear(@RequestBody Producto producto) {
+        return service.crear(producto);
+    }
+
+    @PutMapping("/{id}")
+    public Producto actualizar(@PathVariable Long id, @RequestBody Producto producto) {
+        return service.actualizar(id, producto);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void eliminar(@PathVariable Long id) {
+        service.eliminar(id);
+    }
 }

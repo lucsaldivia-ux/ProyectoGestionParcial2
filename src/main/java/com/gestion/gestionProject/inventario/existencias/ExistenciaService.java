@@ -1,9 +1,11 @@
 package com.gestion.gestionProject.inventario.existencias;
 
-import java.util.Map;
+import java.util.List;
 
 public interface ExistenciaService {
-
-	Map<String, Object> listPlaceholder();
-
+    List<Existencia> listar();
+    Existencia buscarPorId(Long id);
+    Existencia crear(Existencia existencia);
+    Existencia actualizar(Long id, Existencia existencia);
+    void eliminar(Long id);
 }

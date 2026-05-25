@@ -1,24 +1,44 @@
 package com.gestion.gestionProject.inventario.almacenes;
 
-import java.util.Map;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/inventario/almacenes")
 public class AlmacenController {
 
-	private final AlmacenService almacenService;
+    private final AlmacenService service;
 
-	public AlmacenController(AlmacenService almacenService) {
-		this.almacenService = almacenService;
-	}
+    public AlmacenController(AlmacenService service) {
+        this.service = service;
+    }
 
-	@GetMapping
-	public Map<String, Object> list() {
-		return almacenService.listPlaceholder();
-	}
+    @GetMapping
+    public List<Almacen> listar() {
+        return service.listar();
+    }
 
+    @GetMapping("/{id}")
+    public Almacen buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Almacen crear(@RequestBody Almacen almacen) {
+        return service.crear(almacen);
+    }
+
+    @PutMapping("/{id}")
+    public Almacen actualizar(@PathVariable Long id, @RequestBody Almacen almacen) {
+        return service.actualizar(id, almacen);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void eliminar(@PathVariable Long id) {
+        service.eliminar(id);
+    }
 }
