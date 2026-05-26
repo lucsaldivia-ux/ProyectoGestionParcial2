@@ -1,0 +1,539 @@
+{
+  "info": {
+    "name": "ProyectoGestionParcial2 - Todos los Microservicios",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "INTEGRANTE 1 - Gestión RRHH",
+      "item": [
+        {
+          "name": "Empleados (8080)",
+          "item": [
+            {
+              "name": "Listar empleados",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8080/api/v1/empleados", "host": ["localhost"], "port": "8080", "path": ["api","v1","empleados"] } }
+            },
+            {
+              "name": "Buscar empleado por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8080/api/v1/empleados/1", "host": ["localhost"], "port": "8080", "path": ["api","v1","empleados","1"] } }
+            },
+            {
+              "name": "Crear empleado",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Juan\",\n  \"apellido\": \"Pérez\",\n  \"email\": \"juan.perez@empresa.cl\",\n  \"telefono\": \"912345678\",\n  \"departamentoId\": 1,\n  \"cargoId\": 1\n}" },
+                "url": { "raw": "http://localhost:8080/api/v1/empleados/crear", "host": ["localhost"], "port": "8080", "path": ["api","v1","empleados","crear"] }
+              }
+            },
+            {
+              "name": "Actualizar empleado",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Juan\",\n  \"apellido\": \"Pérez Actualizado\",\n  \"email\": \"juan.perez@empresa.cl\",\n  \"telefono\": \"912345678\",\n  \"departamentoId\": 1,\n  \"cargoId\": 1\n}" },
+                "url": { "raw": "http://localhost:8080/api/v1/empleados/1", "host": ["localhost"], "port": "8080", "path": ["api","v1","empleados","1"] }
+              }
+            },
+            {
+              "name": "Eliminar empleado",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8080/api/v1/empleados/1", "host": ["localhost"], "port": "8080", "path": ["api","v1","empleados","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Departamentos (8091)",
+          "item": [
+            {
+              "name": "Listar departamentos",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8091/api/v1/departamentos", "host": ["localhost"], "port": "8091", "path": ["api","v1","departamentos"] } }
+            },
+            {
+              "name": "Buscar departamento por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8091/api/v1/departamentos/1", "host": ["localhost"], "port": "8091", "path": ["api","v1","departamentos","1"] } }
+            },
+            {
+              "name": "Crear departamento",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Tecnología\",\n  \"descripcion\": \"Departamento de TI\"\n}" },
+                "url": { "raw": "http://localhost:8091/api/v1/departamentos", "host": ["localhost"], "port": "8091", "path": ["api","v1","departamentos"] }
+              }
+            },
+            {
+              "name": "Actualizar departamento",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"TI Actualizado\",\n  \"descripcion\": \"Departamento de Tecnología de la Información\"\n}" },
+                "url": { "raw": "http://localhost:8091/api/v1/departamentos/1", "host": ["localhost"], "port": "8091", "path": ["api","v1","departamentos","1"] }
+              }
+            },
+            {
+              "name": "Eliminar departamento",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8091/api/v1/departamentos/1", "host": ["localhost"], "port": "8091", "path": ["api","v1","departamentos","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Cargos (8092)",
+          "item": [
+            {
+              "name": "Listar cargos",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8092/api/v1/cargos", "host": ["localhost"], "port": "8092", "path": ["api","v1","cargos"] } }
+            },
+            {
+              "name": "Buscar cargo por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8092/api/v1/cargos/1", "host": ["localhost"], "port": "8092", "path": ["api","v1","cargos","1"] } }
+            },
+            {
+              "name": "Crear cargo",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Desarrollador Senior\",\n  \"descripcion\": \"Desarrollador con 5+ años\",\n  \"departamentoId\": 1\n}" },
+                "url": { "raw": "http://localhost:8092/api/v1/cargos", "host": ["localhost"], "port": "8092", "path": ["api","v1","cargos"] }
+              }
+            },
+            {
+              "name": "Actualizar cargo",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Desarrollador Líder\",\n  \"descripcion\": \"Líder técnico del equipo\",\n  \"departamentoId\": 1\n}" },
+                "url": { "raw": "http://localhost:8092/api/v1/cargos/1", "host": ["localhost"], "port": "8092", "path": ["api","v1","cargos","1"] }
+              }
+            },
+            {
+              "name": "Eliminar cargo",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8092/api/v1/cargos/1", "host": ["localhost"], "port": "8092", "path": ["api","v1","cargos","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Autenticacion (8093)",
+          "item": [
+            {
+              "name": "Listar usuarios",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8093/api/v1/autenticacion", "host": ["localhost"], "port": "8093", "path": ["api","v1","autenticacion"] } }
+            },
+            {
+              "name": "Buscar usuario por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8093/api/v1/autenticacion/1", "host": ["localhost"], "port": "8093", "path": ["api","v1","autenticacion","1"] } }
+            },
+            {
+              "name": "Crear usuario",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"username\": \"jperez\",\n  \"password\": \"Segura123\",\n  \"rol\": \"ADMIN\",\n  \"empleadoId\": 1\n}" },
+                "url": { "raw": "http://localhost:8093/api/v1/autenticacion", "host": ["localhost"], "port": "8093", "path": ["api","v1","autenticacion"] }
+              }
+            },
+            {
+              "name": "Actualizar usuario",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"username\": \"jperez\",\n  \"password\": \"NuevaSegura456\",\n  \"rol\": \"USER\",\n  \"empleadoId\": 1\n}" },
+                "url": { "raw": "http://localhost:8093/api/v1/autenticacion/1", "host": ["localhost"], "port": "8093", "path": ["api","v1","autenticacion","1"] }
+              }
+            },
+            {
+              "name": "Eliminar usuario",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8093/api/v1/autenticacion/1", "host": ["localhost"], "port": "8093", "path": ["api","v1","autenticacion","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Auditoria (8094)",
+          "item": [
+            {
+              "name": "Listar auditorias",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8094/api/v1/auditoria", "host": ["localhost"], "port": "8094", "path": ["api","v1","auditoria"] } }
+            },
+            {
+              "name": "Buscar auditoria por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8094/api/v1/auditoria/1", "host": ["localhost"], "port": "8094", "path": ["api","v1","auditoria","1"] } }
+            },
+            {
+              "name": "Crear auditoria",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"accion\": \"CREATE\",\n  \"tabla\": \"empleados\",\n  \"registroId\": 1,\n  \"usuario\": \"jperez\",\n  \"detalles\": \"Creación de nuevo empleado\"\n}" },
+                "url": { "raw": "http://localhost:8094/api/v1/auditoria", "host": ["localhost"], "port": "8094", "path": ["api","v1","auditoria"] }
+              }
+            },
+            {
+              "name": "Eliminar auditoria",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8094/api/v1/auditoria/1", "host": ["localhost"], "port": "8094", "path": ["api","v1","auditoria","1"] } }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "INTEGRANTE 2 - Gestión Inventario",
+      "item": [
+        {
+          "name": "Almacenes (8095)",
+          "item": [
+            {
+              "name": "Listar almacenes",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8095/api/v1/almacenes", "host": ["localhost"], "port": "8095", "path": ["api","v1","almacenes"] } }
+            },
+            {
+              "name": "Buscar almacen por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8095/api/v1/almacenes/1", "host": ["localhost"], "port": "8095", "path": ["api","v1","almacenes","1"] } }
+            },
+            {
+              "name": "Crear almacen",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Almacen Central\",\n  \"ubicacion\": \"Av. Industrial 100, Santiago\",\n  \"capacidad\": 500\n}" },
+                "url": { "raw": "http://localhost:8095/api/v1/almacenes", "host": ["localhost"], "port": "8095", "path": ["api","v1","almacenes"] }
+              }
+            },
+            {
+              "name": "Actualizar almacen",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Almacen Norte\",\n  \"ubicacion\": \"Av. Norte 200, Concepción\",\n  \"capacidad\": 750\n}" },
+                "url": { "raw": "http://localhost:8095/api/v1/almacenes/1", "host": ["localhost"], "port": "8095", "path": ["api","v1","almacenes","1"] }
+              }
+            },
+            {
+              "name": "Eliminar almacen",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8095/api/v1/almacenes/1", "host": ["localhost"], "port": "8095", "path": ["api","v1","almacenes","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Existencias (8096)",
+          "item": [
+            {
+              "name": "Listar existencias",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8096/api/v1/existencias", "host": ["localhost"], "port": "8096", "path": ["api","v1","existencias"] } }
+            },
+            {
+              "name": "Buscar existencia por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8096/api/v1/existencias/1", "host": ["localhost"], "port": "8096", "path": ["api","v1","existencias","1"] } }
+            },
+            {
+              "name": "Crear existencia",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"productoId\": 1,\n  \"cantidad\": 100,\n  \"ubicacion\": \"Estante A-01\"\n}" },
+                "url": { "raw": "http://localhost:8096/api/v1/existencias", "host": ["localhost"], "port": "8096", "path": ["api","v1","existencias"] }
+              }
+            },
+            {
+              "name": "Actualizar existencia",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"productoId\": 1,\n  \"cantidad\": 75,\n  \"ubicacion\": \"Estante B-02\"\n}" },
+                "url": { "raw": "http://localhost:8096/api/v1/existencias/1", "host": ["localhost"], "port": "8096", "path": ["api","v1","existencias","1"] }
+              }
+            },
+            {
+              "name": "Eliminar existencia",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8096/api/v1/existencias/1", "host": ["localhost"], "port": "8096", "path": ["api","v1","existencias","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Ordenes de Compra (8097)",
+          "item": [
+            {
+              "name": "Listar ordenes de compra",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8097/api/v1/ordenes-compra", "host": ["localhost"], "port": "8097", "path": ["api","v1","ordenes-compra"] } }
+            },
+            {
+              "name": "Buscar orden por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8097/api/v1/ordenes-compra/1", "host": ["localhost"], "port": "8097", "path": ["api","v1","ordenes-compra","1"] } }
+            },
+            {
+              "name": "Crear orden de compra",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"proveedorId\": 1,\n  \"fecha\": \"2026-05-25\",\n  \"estado\": \"PENDIENTE\",\n  \"total\": 1500.00\n}" },
+                "url": { "raw": "http://localhost:8097/api/v1/ordenes-compra", "host": ["localhost"], "port": "8097", "path": ["api","v1","ordenes-compra"] }
+              }
+            },
+            {
+              "name": "Actualizar orden de compra",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"proveedorId\": 1,\n  \"fecha\": \"2026-05-25\",\n  \"estado\": \"APROBADA\",\n  \"total\": 1500.00\n}" },
+                "url": { "raw": "http://localhost:8097/api/v1/ordenes-compra/1", "host": ["localhost"], "port": "8097", "path": ["api","v1","ordenes-compra","1"] }
+              }
+            },
+            {
+              "name": "Eliminar orden de compra",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8097/api/v1/ordenes-compra/1", "host": ["localhost"], "port": "8097", "path": ["api","v1","ordenes-compra","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Productos (8098)",
+          "item": [
+            {
+              "name": "Listar productos",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8098/api/v1/productos", "host": ["localhost"], "port": "8098", "path": ["api","v1","productos"] } }
+            },
+            {
+              "name": "Buscar producto por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8098/api/v1/productos/1", "host": ["localhost"], "port": "8098", "path": ["api","v1","productos","1"] } }
+            },
+            {
+              "name": "Crear producto",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Laptop Dell 15\",\n  \"descripcion\": \"Laptop 15 pulgadas, 16GB RAM\",\n  \"precio\": 999.99,\n  \"stock\": 20\n}" },
+                "url": { "raw": "http://localhost:8098/api/v1/productos", "host": ["localhost"], "port": "8098", "path": ["api","v1","productos"] }
+              }
+            },
+            {
+              "name": "Actualizar producto",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Laptop Dell 15 Pro\",\n  \"descripcion\": \"Laptop 15 pulgadas, 32GB RAM\",\n  \"precio\": 1299.99,\n  \"stock\": 15\n}" },
+                "url": { "raw": "http://localhost:8098/api/v1/productos/1", "host": ["localhost"], "port": "8098", "path": ["api","v1","productos","1"] }
+              }
+            },
+            {
+              "name": "Eliminar producto",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8098/api/v1/productos/1", "host": ["localhost"], "port": "8098", "path": ["api","v1","productos","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Proveedores (8099)",
+          "item": [
+            {
+              "name": "Listar proveedores",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8099/api/v1/proveedores", "host": ["localhost"], "port": "8099", "path": ["api","v1","proveedores"] } }
+            },
+            {
+              "name": "Buscar proveedor por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8099/api/v1/proveedores/1", "host": ["localhost"], "port": "8099", "path": ["api","v1","proveedores","1"] } }
+            },
+            {
+              "name": "Crear proveedor",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Distribuidora Tech SA\",\n  \"email\": \"contacto@techsa.cl\",\n  \"telefono\": \"+56912345678\",\n  \"direccion\": \"Av. Providencia 1234, Santiago\"\n}" },
+                "url": { "raw": "http://localhost:8099/api/v1/proveedores", "host": ["localhost"], "port": "8099", "path": ["api","v1","proveedores"] }
+              }
+            },
+            {
+              "name": "Actualizar proveedor",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Tech Distribuciones Ltda\",\n  \"email\": \"ventas@techltda.cl\",\n  \"telefono\": \"+56987654321\",\n  \"direccion\": \"Av. Las Condes 5678, Santiago\"\n}" },
+                "url": { "raw": "http://localhost:8099/api/v1/proveedores/1", "host": ["localhost"], "port": "8099", "path": ["api","v1","proveedores","1"] }
+              }
+            },
+            {
+              "name": "Eliminar proveedor",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8099/api/v1/proveedores/1", "host": ["localhost"], "port": "8099", "path": ["api","v1","proveedores","1"] } }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "INTEGRANTE 3 - Gestión Operaciones",
+      "item": [
+        {
+          "name": "Clientes (8081)",
+          "item": [
+            {
+              "name": "Listar clientes",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8081/api/clientes", "host": ["localhost"], "port": "8081", "path": ["api","clientes"] } }
+            },
+            {
+              "name": "Buscar cliente por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8081/api/clientes/1", "host": ["localhost"], "port": "8081", "path": ["api","clientes","1"] } }
+            },
+            {
+              "name": "Crear cliente",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"María\",\n  \"apellido\": \"González\",\n  \"email\": \"maria.gonzalez@email.cl\",\n  \"telefono\": \"987654321\",\n  \"direccion\": \"Calle Los Aromos 456\"\n}" },
+                "url": { "raw": "http://localhost:8081/api/clientes", "host": ["localhost"], "port": "8081", "path": ["api","clientes"] }
+              }
+            },
+            {
+              "name": "Actualizar cliente",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"María\",\n  \"apellido\": \"González López\",\n  \"email\": \"maria.gonzalez@email.cl\",\n  \"telefono\": \"987654321\",\n  \"direccion\": \"Calle Nueva 789\"\n}" },
+                "url": { "raw": "http://localhost:8081/api/clientes/1", "host": ["localhost"], "port": "8081", "path": ["api","clientes","1"] }
+              }
+            },
+            {
+              "name": "Eliminar cliente",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8081/api/clientes/1", "host": ["localhost"], "port": "8081", "path": ["api","clientes","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Ventas (8082)",
+          "item": [
+            {
+              "name": "Listar ventas",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8082/api/ventas", "host": ["localhost"], "port": "8082", "path": ["api","ventas"] } }
+            },
+            {
+              "name": "Buscar venta por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8082/api/ventas/1", "host": ["localhost"], "port": "8082", "path": ["api","ventas","1"] } }
+            },
+            {
+              "name": "Crear venta",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"clienteId\": 1,\n  \"producto\": \"Monitor 24 pulgadas\",\n  \"cantidad\": 2,\n  \"precioUnitario\": 250.00\n}" },
+                "url": { "raw": "http://localhost:8082/api/ventas", "host": ["localhost"], "port": "8082", "path": ["api","ventas"] }
+              }
+            },
+            {
+              "name": "Actualizar venta",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"clienteId\": 1,\n  \"producto\": \"Monitor 27 pulgadas\",\n  \"cantidad\": 1,\n  \"precioUnitario\": 350.00\n}" },
+                "url": { "raw": "http://localhost:8082/api/ventas/1", "host": ["localhost"], "port": "8082", "path": ["api","ventas","1"] }
+              }
+            },
+            {
+              "name": "Eliminar venta",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8082/api/ventas/1", "host": ["localhost"], "port": "8082", "path": ["api","ventas","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Pagos (8083)",
+          "item": [
+            {
+              "name": "Listar pagos",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8083/api/pagos", "host": ["localhost"], "port": "8083", "path": ["api","pagos"] } }
+            },
+            {
+              "name": "Buscar pago por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8083/api/pagos/1", "host": ["localhost"], "port": "8083", "path": ["api","pagos","1"] } }
+            },
+            {
+              "name": "Crear pago",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"ventaId\": 1,\n  \"monto\": 500.00,\n  \"metodoPago\": \"Transferencia\"\n}" },
+                "url": { "raw": "http://localhost:8083/api/pagos", "host": ["localhost"], "port": "8083", "path": ["api","pagos"] }
+              }
+            },
+            {
+              "name": "Actualizar pago",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"ventaId\": 1,\n  \"monto\": 500.00,\n  \"metodoPago\": \"Tarjeta\"\n}" },
+                "url": { "raw": "http://localhost:8083/api/pagos/1", "host": ["localhost"], "port": "8083", "path": ["api","pagos","1"] }
+              }
+            },
+            {
+              "name": "Eliminar pago",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8083/api/pagos/1", "host": ["localhost"], "port": "8083", "path": ["api","pagos","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Reportes (8084)",
+          "item": [
+            {
+              "name": "Listar reportes",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8084/api/reportes", "host": ["localhost"], "port": "8084", "path": ["api","reportes"] } }
+            },
+            {
+              "name": "Buscar reporte por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8084/api/reportes/1", "host": ["localhost"], "port": "8084", "path": ["api","reportes","1"] } }
+            },
+            {
+              "name": "Crear reporte",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"tipo\": \"VENTAS_MENSUAL\",\n  \"descripcion\": \"Reporte de ventas del mes de mayo 2026\"\n}" },
+                "url": { "raw": "http://localhost:8084/api/reportes", "host": ["localhost"], "port": "8084", "path": ["api","reportes"] }
+              }
+            },
+            {
+              "name": "Actualizar reporte",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"tipo\": \"VENTAS_ANUAL\",\n  \"descripcion\": \"Reporte anual consolidado 2026\"\n}" },
+                "url": { "raw": "http://localhost:8084/api/reportes/1", "host": ["localhost"], "port": "8084", "path": ["api","reportes","1"] }
+              }
+            },
+            {
+              "name": "Eliminar reporte",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8084/api/reportes/1", "host": ["localhost"], "port": "8084", "path": ["api","reportes","1"] } }
+            }
+          ]
+        },
+        {
+          "name": "Notificaciones (8085)",
+          "item": [
+            {
+              "name": "Listar notificaciones",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8085/api/notificaciones", "host": ["localhost"], "port": "8085", "path": ["api","notificaciones"] } }
+            },
+            {
+              "name": "Buscar notificacion por ID",
+              "request": { "method": "GET", "url": { "raw": "http://localhost:8085/api/notificaciones/1", "host": ["localhost"], "port": "8085", "path": ["api","notificaciones","1"] } }
+            },
+            {
+              "name": "Crear notificacion",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"titulo\": \"Bienvenido al sistema\",\n  \"mensaje\": \"Tu cuenta ha sido creada exitosamente\",\n  \"destinatario\": \"maria.gonzalez@email.cl\"\n}" },
+                "url": { "raw": "http://localhost:8085/api/notificaciones", "host": ["localhost"], "port": "8085", "path": ["api","notificaciones"] }
+              }
+            },
+            {
+              "name": "Actualizar notificacion",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": { "mode": "raw", "raw": "{\n  \"titulo\": \"Notificacion Actualizada\",\n  \"mensaje\": \"El contenido ha sido modificado\",\n  \"destinatario\": \"maria.gonzalez@email.cl\",\n  \"estado\": \"ENVIADA\"\n}" },
+                "url": { "raw": "http://localhost:8085/api/notificaciones/1", "host": ["localhost"], "port": "8085", "path": ["api","notificaciones","1"] }
+              }
+            },
+            {
+              "name": "Eliminar notificacion",
+              "request": { "method": "DELETE", "url": { "raw": "http://localhost:8085/api/notificaciones/1", "host": ["localhost"], "port": "8085", "path": ["api","notificaciones","1"] } }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
