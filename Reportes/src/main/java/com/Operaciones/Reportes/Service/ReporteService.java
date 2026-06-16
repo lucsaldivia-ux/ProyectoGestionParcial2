@@ -2,6 +2,7 @@ package com.Operaciones.Reportes.Service;
 
 import com.Operaciones.Reportes.Model.Reporte;
 import com.Operaciones.Reportes.Repository.ReporteRepository;
+import com.Operaciones.Reportes.dto.ReporteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,14 @@ public class ReporteService {
 
     public Reporte guardar(Reporte reporte) {
         return reporteRepository.save(reporte);
+    }
+
+    public Optional<Reporte> actualizar(Long id, ReporteDTO dto) {
+        return reporteRepository.findById(id).map(reporte -> {
+            reporte.setTipo(dto.getTipo());
+            reporte.setDescripcion(dto.getDescripcion());
+            return reporteRepository.save(reporte);
+        });
     }
 
     public void eliminar(Long id) {

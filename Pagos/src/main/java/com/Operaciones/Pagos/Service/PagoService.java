@@ -2,6 +2,7 @@ package com.Operaciones.Pagos.Service;
 
 import com.Operaciones.Pagos.Model.Pago;
 import com.Operaciones.Pagos.Repository.PagoRepository;
+import com.Operaciones.Pagos.dto.PagoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,16 @@ public class PagoService {
 
     public Pago guardar(Pago pago) {
         return pagoRepository.save(pago);
+    }
+
+    public Optional<Pago> actualizar(Long id, PagoDTO dto) {
+        return pagoRepository.findById(id).map(pago -> {
+            pago.setVentaId(dto.getVentaId());
+            pago.setMonto(dto.getMonto());
+            pago.setMetodoPago(dto.getMetodoPago());
+            pago.setEstado(dto.getEstado());
+            return pagoRepository.save(pago);
+        });
     }
 
     public void eliminar(Long id) {

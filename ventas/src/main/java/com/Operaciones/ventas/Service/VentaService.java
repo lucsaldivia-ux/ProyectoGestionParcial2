@@ -2,6 +2,7 @@ package com.Operaciones.ventas.Service;
 
 import com.Operaciones.ventas.Model.Venta;
 import com.Operaciones.ventas.Repository.VentaRepository;
+import com.Operaciones.ventas.dto.VentaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,16 @@ public class VentaService {
 
     public Venta guardar(Venta venta) {
         return ventaRepository.save(venta);
+    }
+
+    public Optional<Venta> actualizar(Long id, VentaDTO dto) {
+        return ventaRepository.findById(id).map(venta -> {
+            venta.setClienteId(dto.getClienteId());
+            venta.setProducto(dto.getProducto());
+            venta.setCantidad(dto.getCantidad());
+            venta.setPrecioUnitario(dto.getPrecioUnitario());
+            return ventaRepository.save(venta);
+        });
     }
 
     public void eliminar(Long id) {

@@ -2,6 +2,7 @@ package com.Operaciones.Notificaciones.Service;
 
 import com.Operaciones.Notificaciones.Model.Notificacion;
 import com.Operaciones.Notificaciones.Repository.NotificacionRepository;
+import com.Operaciones.Notificaciones.dto.NotificacionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,16 @@ public class NotificacionService {
 
     public Notificacion guardar(Notificacion notificacion) {
         return notificacionRepository.save(notificacion);
+    }
+
+    public Optional<Notificacion> actualizar(Long id, NotificacionDTO dto) {
+        return notificacionRepository.findById(id).map(notificacion -> {
+            notificacion.setTitulo(dto.getTitulo());
+            notificacion.setMensaje(dto.getMensaje());
+            notificacion.setDestinatario(dto.getDestinatario());
+            notificacion.setEstado(dto.getEstado());
+            return notificacionRepository.save(notificacion);
+        });
     }
 
     public void eliminar(Long id) {

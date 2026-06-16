@@ -1,0 +1,469 @@
+{
+  "info": {
+    "name": "test-integrante3-ProyectoGestion",
+    "description": "Microservicios EV3 - JWT, HATEOAS y validación DTO",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Clientes (8081)",
+      "item": [
+        {
+          "name": "GET Listar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/clientes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "clientes"]
+            }
+          }
+        },
+        {
+          "name": "GET por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/clientes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "clientes", "1"]
+            }
+          }
+        },
+        {
+          "name": "POST Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan Pérez\",\n  \"email\": \"juan@mail.com\",\n  \"telefono\": \"123456789\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/clientes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "clientes"]
+            }
+          }
+        },
+        {
+          "name": "PUT Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan Actualizado\",\n  \"email\": \"juan.nuevo@mail.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/clientes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "clientes", "1"]
+            }
+          }
+        },
+        {
+          "name": "DELETE Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/clientes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "clientes", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ventas (8082)",
+      "item": [
+        {
+          "name": "GET Listar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/ventas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "ventas"]
+            }
+          }
+        },
+        {
+          "name": "GET por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/ventas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "ventas", "1"]
+            }
+          }
+        },
+        {
+          "name": "POST Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clienteId\": 1,\n  \"producto\": \"Monitor\",\n  \"cantidad\": 3,\n  \"precioUnitario\": 250.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/ventas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "ventas"]
+            }
+          }
+        },
+        {
+          "name": "PUT Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"producto\": \"Monitor 4K\",\n  \"cantidad\": 5\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/ventas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "ventas", "1"]
+            }
+          }
+        },
+        {
+          "name": "DELETE Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/ventas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "ventas", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pagos (8083)",
+      "item": [
+        {
+          "name": "GET Listar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/pagos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "pagos"]
+            }
+          }
+        },
+        {
+          "name": "GET por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/pagos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "pagos", "1"]
+            }
+          }
+        },
+        {
+          "name": "POST Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ventaId\": 1,\n  \"monto\": 500.0,\n  \"metodoPago\": \"Tarjeta\",\n  \"estado\": \"Completado\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/pagos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "pagos"]
+            }
+          }
+        },
+        {
+          "name": "PUT Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"Reembolsado\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/pagos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "pagos", "1"]
+            }
+          }
+        },
+        {
+          "name": "DELETE Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/pagos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "pagos", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reportes (8084)",
+      "item": [
+        {
+          "name": "GET Listar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8084/api/reportes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["api", "reportes"]
+            }
+          }
+        },
+        {
+          "name": "GET por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8084/api/reportes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["api", "reportes", "1"]
+            }
+          }
+        },
+        {
+          "name": "POST Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo\": \"Ventas\",\n  \"descripcion\": \"Reporte mensual de ventas\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8084/api/reportes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["api", "reportes"]
+            }
+          }
+        },
+        {
+          "name": "PUT Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"descripcion\": \"Reporte actualizado\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8084/api/reportes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["api", "reportes", "1"]
+            }
+          }
+        },
+        {
+          "name": "DELETE Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8084/api/reportes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["api", "reportes", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notificaciones (8085)",
+      "item": [
+        {
+          "name": "GET Listar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8085/api/notificaciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["api", "notificaciones"]
+            }
+          }
+        },
+        {
+          "name": "GET por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8085/api/notificaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["api", "notificaciones", "1"]
+            }
+          }
+        },
+        {
+          "name": "POST Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Bienvenido\",\n  \"mensaje\": \"Gracias por registrarte\",\n  \"destinatario\": \"usuario@mail.com\",\n  \"estado\": \"Enviado\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8085/api/notificaciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["api", "notificaciones"]
+            }
+          }
+        },
+        {
+          "name": "PUT Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "name": "Content-Type", "value": "application/json", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"Leído\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8085/api/notificaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["api", "notificaciones", "1"]
+            }
+          }
+        },
+        {
+          "name": "DELETE Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8085/api/notificaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["api", "notificaciones", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
