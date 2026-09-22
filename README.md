@@ -1,39 +1,64 @@
-# 📊 Sistema de Gestión de Proyectos (Proyecto Académico)
+# 🏗️ Proyecto Full Stack — Arquitectura de Microservicios
 
-![Estado](https://img.shields.io/badge/Estado-Finalizado-brightgreen)
-![Licencia](https://img.shields.io/badge/Licencia-MIT-blue)
+![Asignatura](https://img.shields.io/badge/Asignatura-Full_Stack-blue)
+![Arquitectura](https://img.shields.io/badge/Arquitectura-Microservicios-purple)
+![Estado](https://img.shields.io/badge/Estado-Completado-brightgreen)
 
-Aplicación web desarrollada como parte de la evaluación práctica de la asignatura de **Gestión de Proyectos / Ingeniería de Software**. La solución está diseñada para facilitar la planificación, asignación de tareas, seguimiento de actividades y control de recursos dentro de un equipo de trabajo.
-
----
-
-## 🚀 Características Principales
-
-- **Gestión de Proyectos:** Creación, edición y monitoreo de proyectos y sus fases.
-- **Asignación de Tareas:** Creación de actividades con fechas de entrega, prioridades y asignación a miembros del equipo.
-- **Control de Estados:** Seguimiento del flujo de trabajo (*Pendiente*, *En Proceso*, *Completado*).
-- **Gestión de Usuarios:** Registro de roles (Administrador, Gestor, Miembro del Equipo) con permisos específicos.
-- **Visualización de Avance:** Indicadores gráficos sobre el progreso general de los proyectos.
+Proyecto práctico desarrollado para la asignatura de **Full Stack**. Consiste en un sistema distribuido escalable desarrollado bajo una **arquitectura de microservicios**, separación de responsabilidades, integración de API Gateway y comunicación entre componentes del backend y cliente web.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🏛️ Enfoques de Diseño y Arquitectura
 
-### Backend
-- **Lenguaje / Framework:** [ej. C# (.NET Core) / Java (Spring Boot) / Node.js (Express) / Python (Django)]
-- **Base de Datos:** [ej. PostgreSQL / SQL Server / MySQL]
-- **ORM / Conectividad:** [ej. Entity Framework / Hibernate / Prisma]
+El desarrollo de este sistema Full Stack incorpora las siguientes buenas prácticas y patrones de diseño:
+
+- **Descomposición por Dominio:** División del sistema en servicios independientes y desacoplados (*Database per Service*).
+- **API Gateway Pattern:** Punto único de entrada para el cliente que gestiona el enrutamiento de solicitudes, el control de acceso y el tráfico hacia el backend.
+- **Comunicación entre Servicios:**
+  - **Síncrona (REST / HTTP):** Para peticiones inmediatas y de baja latencia entre el frontend y los servicios.
+  - **Asíncrona (Event-Driven Architecture):** Uso de mensajería/eventos para la integración desacoplada entre microservicios.
+- **Seguridad & Autenticación:** Módulo centralizado de autenticación mediante Tokens JWT (JSON Web Tokens).
+
+---
+
+## 🧩 Microservicios e Infraestructura del Backend
+
+| Servicio / Componente | Responsabilidad | Base de Datos / Persistencia | Enfoque de Comunicación |
+| :--- | :--- | :--- | :--- |
+| **API Gateway** | Enrutamiento de peticiones, CORS y proxy del sistema. | N/A | Síncrono (HTTP / REST) |
+| **Auth Service** | Autenticación, gestión de usuarios y emisión de JWT. | [ej. PostgreSQL / MongoDB] | Síncrono |
+| **Servicio de Dominio 1** | [Nombre del servicio, ej. Service A] | [ej. PostgreSQL] | Síncrono / Asíncrono |
+| **Servicio de Dominio 2** | [Nombre del servicio, ej. Service B] | [ej. MongoDB] | Asíncrono (Eventos) |
+| **Servicio de Notificaciones / Eventos** | [Procesamiento de eventos en segundo plano] | [ej. Redis] | Suscriptor de Eventos |
+
+---
+
+## 🛠️ Stack Tecnológico
 
 ### Frontend
-- **Framework / Interfaz:** [ej. React / Angular / HTML5 + Bootstrap / Tailwind CSS]
-- **Consumo de API:** [ej. Axios / Fetch API]
+- **Framework / Librería:** [ej. React / Next.js / Vue]
+- **Consumo de API:** [ej. Axios / Fetch API / React Query]
+- **Estilos:** [ej. Tailwind CSS / CSS Modules / Bootstrap]
+
+### Backend & Microservicios
+- **Lenguajes / Runtimes:** [ej. Node.js (Express) / Python (FastAPI) / Java (Spring Boot)]
+- **Bases de Datos:** [ej. PostgreSQL / MongoDB / Redis]
+- **Event Broker / Mensajería:** [ej. RabbitMQ / Kafka / NATS]
+- **Autenticación:** JWT & Encripción con bcrypt
+
+### DevOps & Despliegue
+- **Contenedores:** Docker & Docker Compose
+- **Documentación API:** Swagger / Postman Collection
 
 ---
 
 ## 📁 Estructura del Repositorio
 
 ```text
-├── src/ / server/      # Código fuente de la aplicación / backend
-├── client/ / ui/       # Interfaz de usuario / frontend
-├── docs/               # Documentación del proyecto, diagramas UML o de base de datos
-└── README.md
+├── api-gateway/          # Proxy de entrada y enrutador
+├── auth-service/         # Microservicio de Autenticación
+├── service-a/            # Microservicio de dominio A
+├── service-b/            # Microservicio de dominio B
+├── frontend/             # Cliente Web / Interfaz de usuario
+├── docker-compose.yml    # Orquestación de contenedores y servicios
+└── README.md             # Documentación del proyecto
